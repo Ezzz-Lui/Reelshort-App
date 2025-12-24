@@ -12,7 +12,7 @@ class FeedProvider extends ChangeNotifier {
   Future<void> loadNextPage() async {
     //todo: load videos
 
-    await Future.delayed(const Duration(seconds: 3));
+    // await Future.delayed(const Duration(seconds: 3));
 
     // Here, we need a list of video posts, so we must get each video from the provider and map, finally we pass each video to List.
     final List<VideoPosts> feedVideos = videoPosts
