@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:reelshort/config/helpers/count_formatter.dart';
 import 'package:reelshort/domain/entities/video_posts.entitie.dart';
@@ -16,10 +17,21 @@ class VideoButtons extends StatelessWidget {
           iconData: Icons.favorite,
           value: video.likes,
         ),
+        SizedBox(height: 10),
         _CustomIconButton(
           iconColor: Theme.of(context).colorScheme.onPrimaryContainer,
           iconData: Icons.remove_red_eye_outlined,
           value: video.views,
+        ),
+        SizedBox(height: 10),
+        SpinPerfect(
+          infinite: true,
+          duration: const Duration(seconds: 3),
+          child: _CustomIconButton(
+            iconColor: Theme.of(context).colorScheme.onPrimaryContainer,
+            iconData: Icons.play_circle_outlined,
+            value: 0,
+          ),
         ),
       ],
     );
@@ -45,7 +57,8 @@ class _CustomIconButton extends StatelessWidget {
           onPressed: () {},
           icon: Icon(iconData, color: color),
         ),
-        Text(CountFormatter.countFormatterNumber(value.toDouble())),
+        if (value > 0)
+          Text(CountFormatter.countFormatterNumber(value.toDouble())),
       ],
     );
   }
