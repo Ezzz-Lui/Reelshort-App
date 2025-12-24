@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reelshort/domain/entities/video_posts.entitie.dart';
+import 'package:reelshort/presentation/widgets/shared/video_background.dart';
 import 'package:reelshort/presentation/widgets/shared/video_buttons.dart';
 import 'package:reelshort/presentation/widgets/shared/video_player.dart';
 
@@ -27,6 +28,7 @@ class VideoScrolleableView extends StatelessWidget {
             ),
 
             //Gradient
+            VideoBackground(),
 
             //Buttons
             Positioned(
