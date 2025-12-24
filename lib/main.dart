@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:reelshort/presentation/providers/feed_provider.dart';
+import 'package:reelshort/presentation/screens/feed/feed_screen.dart';
 import 'config/theme/util.dart';
 import 'config/theme/theme.dart';
 
@@ -19,12 +22,16 @@ class MyApp extends StatelessWidget {
     TextTheme textTheme = createTextTheme(context, "Poppins", "Poppins");
 
     MaterialTheme theme = MaterialTheme(textTheme);
-    return MaterialApp(
-      title: 'ReelShorts',
-      theme: theme.light(),
-      darkTheme: theme.dark(),
-      home: const MyHomePage(title: 'ReelShorts'),
-      debugShowCheckedModeBanner: false,
+    return MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => FeedProvider())],
+      child: MaterialApp(
+        title: 'ReelShorts',
+        theme: theme.light(),
+        darkTheme: theme.dark(),
+        // home: const MyHomePage(title: 'ReelShorts'),
+        home: FeedScreen(),
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 }
