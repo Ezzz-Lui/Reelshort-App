@@ -20,7 +20,7 @@ class FeedProvider extends ChangeNotifier {
         .toList();
 
     videos.addAll(feedVideos);
-    initalLoading = true;
+    initalLoading = false;
     notifyListeners();
   }
 }
