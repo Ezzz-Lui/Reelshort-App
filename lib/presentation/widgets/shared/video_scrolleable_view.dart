@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:reelshort/domain/entities/video_posts.entitie.dart';
 import 'package:reelshort/presentation/widgets/shared/video_buttons.dart';
+import 'package:reelshort/presentation/widgets/shared/video_player.dart';
 
 class VideoScrolleableView extends StatelessWidget {
   final List<VideoPosts> customFeedVideos;
@@ -18,6 +19,12 @@ class VideoScrolleableView extends StatelessWidget {
         return Stack(
           children: [
             //video Player
+            SizedBox.expand(
+              child: VideoPlayer(
+                videoUrl: videoPost.videoURL,
+                name: videoPost.name,
+              ),
+            ),
 
             //Gradient
 
