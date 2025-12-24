@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
 
     MaterialTheme theme = MaterialTheme(textTheme);
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => FeedProvider())],
+      providers: [ChangeNotifierProvider(create: (_) => FeedProvider()..loadNextPage())],
       child: MaterialApp(
         title: 'ReelShorts',
         theme: theme.light(),
